@@ -1,0 +1,339 @@
+{
+  "rows": [
+    {
+      "hidden": [
+        4,
+        4
+      ],
+      "params": 172,
+      "int8": {
+        "params": 172,
+        "macs": 160,
+        "flash_bytes": 224,
+        "ram_bytes": 40
+      },
+      "int4": {
+        "params": 172,
+        "macs": 160,
+        "flash_bytes": 144,
+        "ram_bytes": 40
+      },
+      "leave-one-load-out:float": [
+        0.9764632171823369,
+        0.013355769129716543
+      ],
+      "leave-one-load-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int8": [
+        0.9733880798268827,
+        0.016499670012573582
+      ],
+      "leave-one-load-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int4": [
+        0.9465443701558255,
+        0.022596485958117155
+      ],
+      "leave-one-load-out:detect_int4": [
+        0.9915620202500938,
+        0.014434870882587476
+      ],
+      "leave-one-size-out:float": [
+        0.5048944717312983,
+        0.045455220904425886
+      ],
+      "leave-one-size-out:detect_float": [
+        0.9980842911877396,
+        0.0027092213838564743
+      ],
+      "leave-one-size-out:int8": [
+        0.5022568781177433,
+        0.045075829158932525
+      ],
+      "leave-one-size-out:detect_int8": [
+        0.9980842911877396,
+        0.0027092213838564743
+      ],
+      "leave-one-size-out:int4": [
+        0.5677133200120733,
+        0.10281825556619782
+      ],
+      "leave-one-size-out:detect_int4": [
+        0.9977715705330329,
+        0.002866203859647107
+      ]
+    },
+    {
+      "hidden": [
+        8,
+        8
+      ],
+      "params": 372,
+      "int8": {
+        "params": 372,
+        "macs": 352,
+        "flash_bytes": 448,
+        "ram_bytes": 48
+      },
+      "int4": {
+        "params": 372,
+        "macs": 352,
+        "flash_bytes": 272,
+        "ram_bytes": 48
+      },
+      "leave-one-load-out:float": [
+        0.982820794973865,
+        0.012195708460691226
+      ],
+      "leave-one-load-out:detect_float": [
+        0.9997261345852895,
+        0.0004743488127145074
+      ],
+      "leave-one-load-out:int8": [
+        0.9825569987723028,
+        0.012408766730348613
+      ],
+      "leave-one-load-out:detect_int8": [
+        0.9996478873239437,
+        0.0006098770449185698
+      ],
+      "leave-one-load-out:int4": [
+        0.9735284738909367,
+        0.015190660036086151
+      ],
+      "leave-one-load-out:detect_int4": [
+        0.9995012046938442,
+        0.0006761639213673925
+      ],
+      "leave-one-size-out:float": [
+        0.49967571329177657,
+        0.03197487590524068
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int8": [
+        0.49917799147662895,
+        0.03114841952759615
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int4": [
+        0.49777354582064753,
+        0.021014427998571
+      ],
+      "leave-one-size-out:detect_int4": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "hidden": [
+        16,
+        8
+      ],
+      "params": 700,
+      "int8": {
+        "params": 700,
+        "macs": 672,
+        "flash_bytes": 800,
+        "ram_bytes": 64
+      },
+      "int4": {
+        "params": 700,
+        "macs": 672,
+        "flash_bytes": 464,
+        "ram_bytes": 64
+      },
+      "leave-one-load-out:float": [
+        0.9907018800455062,
+        0.006599898078365294
+      ],
+      "leave-one-load-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int8": [
+        0.9900564190712512,
+        0.006538591579803451
+      ],
+      "leave-one-load-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int4": [
+        0.9862466492554234,
+        0.007633274562788634
+      ],
+      "leave-one-load-out:detect_int4": [
+        0.999955861581921,
+        7.644998267866676e-05
+      ],
+      "leave-one-size-out:float": [
+        0.5238251410937481,
+        0.027545206429077134
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int8": [
+        0.523532003774839,
+        0.02717891843793943
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int4": [
+        0.5364167356750801,
+        0.04214351436114548
+      ],
+      "leave-one-size-out:detect_int4": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "hidden": [
+        32,
+        16
+      ],
+      "params": 1652,
+      "int8": {
+        "params": 1652,
+        "macs": 1600,
+        "flash_bytes": 1824,
+        "ram_bytes": 96
+      },
+      "int4": {
+        "params": 1652,
+        "macs": 1600,
+        "flash_bytes": 1024,
+        "ram_bytes": 96
+      },
+      "leave-one-load-out:float": [
+        0.9872637712584267,
+        0.012071236905003314
+      ],
+      "leave-one-load-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int8": [
+        0.9867355172592953,
+        0.01244568642237552
+      ],
+      "leave-one-load-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int4": [
+        0.9830438671132519,
+        0.013860247615817613
+      ],
+      "leave-one-load-out:detect_int4": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:float": [
+        0.5192876218932704,
+        0.030157908843701366
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int8": [
+        0.5192895100373397,
+        0.03003653515340343
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int4": [
+        0.5319417052722165,
+        0.037023965837619806
+      ],
+      "leave-one-size-out:detect_int4": [
+        1.0,
+        0.0
+      ]
+    },
+    {
+      "hidden": [
+        64,
+        32
+      ],
+      "params": 4324,
+      "int8": {
+        "params": 4324,
+        "macs": 4224,
+        "flash_bytes": 4640,
+        "ram_bytes": 160
+      },
+      "int4": {
+        "params": 4324,
+        "macs": 4224,
+        "flash_bytes": 2528,
+        "ram_bytes": 160
+      },
+      "leave-one-load-out:float": [
+        0.9902290906906305,
+        0.00903971681229576
+      ],
+      "leave-one-load-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int8": [
+        0.9896421098589303,
+        0.0095983700789986
+      ],
+      "leave-one-load-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:int4": [
+        0.9889357770715562,
+        0.009596712480639102
+      ],
+      "leave-one-load-out:detect_int4": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:float": [
+        0.5306833763563271,
+        0.03276551807296483
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int8": [
+        0.5313278237259585,
+        0.03314838597270077
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:int4": [
+        0.5324332908414312,
+        0.03359347792874236
+      ],
+      "leave-one-size-out:detect_int4": [
+        1.0,
+        0.0
+      ]
+    }
+  ]
+}

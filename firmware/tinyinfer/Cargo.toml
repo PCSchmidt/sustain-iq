@@ -1,0 +1,12 @@
+[package]
+name = "tinyinfer"
+version = "0.1.0"
+edition = "2021"
+description = "Integer-only MLP inference for microcontrollers; bit-exact with the sustain_iq Python reference"
+license = "MIT"
+
+[dependencies]
+
+[dev-dependencies]
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"

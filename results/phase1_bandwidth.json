@@ -1,0 +1,239 @@
+{
+  "rows": [
+    {
+      "factor": 1,
+      "sample_rate_hz": 12000.0,
+      "nyquist_hz": 6000.0,
+      "window_s": 0.08533333333333333,
+      "windows": 11834,
+      "leave-one-load-out:float": [
+        0.9872637712584267,
+        0.012071236905003314
+      ],
+      "leave-one-load-out:int8": [
+        0.9867355172592953,
+        0.01244568642237552
+      ],
+      "leave-one-load-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-load-out:detect_rms_threshold": [
+        0.9957814888951426,
+        0.0030669559294933565
+      ],
+      "leave-one-size-out:float": [
+        0.5192876218932704,
+        0.030157908843701366
+      ],
+      "leave-one-size-out:int8": [
+        0.5192895100373397,
+        0.03003653515340343
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:detect_rms_threshold": [
+        0.9482777547647657,
+        0.06798493732173058
+      ]
+    },
+    {
+      "factor": 2,
+      "sample_rate_hz": 6000.0,
+      "nyquist_hz": 3000.0,
+      "window_s": 0.17066666666666666,
+      "windows": 5887,
+      "leave-one-load-out:float": [
+        0.9733831594274356,
+        0.017470130818943937
+      ],
+      "leave-one-load-out:int8": [
+        0.9729113483832419,
+        0.017305418421405778
+      ],
+      "leave-one-load-out:detect_float": [
+        0.9999605802585935,
+        6.827699493729245e-05
+      ],
+      "leave-one-load-out:detect_int8": [
+        0.9999605802585935,
+        6.827699493729245e-05
+      ],
+      "leave-one-load-out:detect_rms_threshold": [
+        0.7094453421384876,
+        0.17815546838884094
+      ],
+      "leave-one-size-out:float": [
+        0.7019816908921447,
+        0.17460993308958941
+      ],
+      "leave-one-size-out:int8": [
+        0.7020988940876075,
+        0.17469692660650088
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:detect_int8": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:detect_rms_threshold": [
+        0.798352137358176,
+        0.042060920122106424
+      ]
+    },
+    {
+      "factor": 4,
+      "sample_rate_hz": 3000.0,
+      "nyquist_hz": 1500.0,
+      "window_s": 0.3413333333333333,
+      "windows": 2913,
+      "leave-one-load-out:float": [
+        0.9334373289545704,
+        0.07643665861316346
+      ],
+      "leave-one-load-out:int8": [
+        0.933558429118774,
+        0.07599637427209519
+      ],
+      "leave-one-load-out:detect_float": [
+        0.9999203314212874,
+        0.00013799002609694565
+      ],
+      "leave-one-load-out:detect_int8": [
+        0.9999203314212874,
+        0.00013799002609694565
+      ],
+      "leave-one-load-out:detect_rms_threshold": [
+        0.5494888390731338,
+        0.20332609080231923
+      ],
+      "leave-one-size-out:float": [
+        0.5269751122292932,
+        0.1270362077516272
+      ],
+      "leave-one-size-out:int8": [
+        0.5292479609622943,
+        0.12491371093550611
+      ],
+      "leave-one-size-out:detect_float": [
+        0.9998403575989783,
+        0.0002257684486546844
+      ],
+      "leave-one-size-out:detect_int8": [
+        0.9998403575989783,
+        0.0002257684486546844
+      ],
+      "leave-one-size-out:detect_rms_threshold": [
+        0.6225444708301038,
+        0.09064656568496993
+      ]
+    },
+    {
+      "factor": 8,
+      "sample_rate_hz": 1500.0,
+      "nyquist_hz": 750.0,
+      "window_s": 0.6826666666666666,
+      "windows": 1418,
+      "leave-one-load-out:float": [
+        0.8586659663865546,
+        0.1423429855386411
+      ],
+      "leave-one-load-out:int8": [
+        0.858420868347339,
+        0.14238225357982315
+      ],
+      "leave-one-load-out:detect_float": [
+        0.9996699657025744,
+        0.0003300355915483532
+      ],
+      "leave-one-load-out:detect_int8": [
+        0.9996699657025744,
+        0.0003300355915483532
+      ],
+      "leave-one-load-out:detect_rms_threshold": [
+        0.6748826354804617,
+        0.056972218533575904
+      ],
+      "leave-one-size-out:float": [
+        0.5672649775249333,
+        0.22193705443597578
+      ],
+      "leave-one-size-out:int8": [
+        0.5615650021070374,
+        0.21585226672105398
+      ],
+      "leave-one-size-out:detect_float": [
+        1.0,
+        0.0
+      ],
+      "leave-one-size-out:detect_int8": [
+        0.9998346560846562,
+        0.0002338316075352331
+      ],
+      "leave-one-size-out:detect_rms_threshold": [
+        0.6883781957621782,
+        0.10093982737733158
+      ]
+    },
+    {
+      "factor": 16,
+      "sample_rate_hz": 750.0,
+      "nyquist_hz": 375.0,
+      "window_s": 1.3653333333333333,
+      "windows": 671,
+      "leave-one-load-out:float": [
+        0.9172142094017094,
+        0.09102719572995911
+      ],
+      "leave-one-load-out:int8": [
+        0.9177483974358974,
+        0.09003263807399917
+      ],
+      "leave-one-load-out:detect_float": [
+        0.9996438746438746,
+        0.0006168272106726909
+      ],
+      "leave-one-load-out:detect_int8": [
+        0.9996438746438746,
+        0.0006168272106726909
+      ],
+      "leave-one-load-out:detect_rms_threshold": [
+        0.38146551724137934,
+        0.20530774658682815
+      ],
+      "leave-one-size-out:float": [
+        0.5644351717464926,
+        0.12224690571408492
+      ],
+      "leave-one-size-out:int8": [
+        0.5617944686340913,
+        0.1239358576049007
+      ],
+      "leave-one-size-out:detect_float": [
+        0.9996438746438746,
+        0.0005036373085374252
+      ],
+      "leave-one-size-out:detect_int8": [
+        0.9996438746438746,
+        0.0005036373085374252
+      ],
+      "leave-one-size-out:detect_rms_threshold": [
+        0.48164335664335667,
+        0.006181003332050221
+      ]
+    }
+  ]
+}
