@@ -1,0 +1,18 @@
+[package]
+name = "pico2-bringup"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal Embassy firmware for the Raspberry Pi Pico 2 (RP2350): blinks the LED, to prove the toolchain"
+license = "MIT"
+
+[dependencies]
+embassy-executor = { version = "0.10", features = ["platform-cortex-m", "executor-thread"] }
+embassy-rp = { version = "0.10", features = ["rp235xa", "rt", "time-driver", "critical-section-impl", "binary-info"] }
+embassy-time = "0.5"
+cortex-m-rt = "0.7"
+panic-halt = "1"
+
+[profile.release]
+opt-level = "s"
+lto = true
+debug = 2
