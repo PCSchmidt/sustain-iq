@@ -11,6 +11,7 @@ embassy-rp = { version = "0.10", features = ["rp235xa", "rt", "time-driver", "cr
 embassy-time = "0.5"
 cortex-m-rt = "0.7"
 panic-halt = "1"
+tinyfeat = { path = "../tinyfeat" }
 
 [profile.release]
 opt-level = "s"

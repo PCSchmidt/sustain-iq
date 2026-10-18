@@ -31,7 +31,20 @@ Everything after the sensor is meant to run on the microcontroller. In phase 1 t
 
 The network is tiny next to the feature extraction: one 1,024-point FFT is about 5,000 butterflies of roughly ten floating-point operations each, against 1,600 integer multiply-accumulates for the whole network, and the window itself (1,024 samples at 2-4 bytes each) dwarfs the 96 bytes of activations as the dominant RAM cost. Neither is measured yet; the operation counts are rough estimates. These are the figures phase 2 exists to replace with measurements.
 
-## Phase 2 plan (not started)
+## Host-side preparation for phase 2
+
+Done before any hardware exists, so that bring-up is a matter of running and measuring ([bring-up checklist](bringup-checklist.md)). None of this has run on a board.
+
+**Features in Rust (`firmware/tinyfeat`).** The same computation as `band_features`: mean removal, the symmetric Hann window, a 1,024-point FFT, 513 power bins summed into the 32 log-spaced bands, `log10(sum + 1e-12)`. Twiddles, the window and the band edges are generated from the Python definitions by `scripts/gen_tinyfeat_tables.py`, so they cannot drift apart. The FFT is a plain radix-2 complex FFT in `f32` of the real signal (about twice the work of a packed real FFT; that optimisation waits for a cycle measurement that says it is needed).
+
+- *Agreement with Python.* On 52 windows (12 real windows per class plus edge cases) committed with the repository: worst feature error 9.3e-5 log10 units on real windows, int8 inputs identical on all 1,632 values compared, predicted class identical for all 52. On a larger local run of 2,004 windows (2,000 real windows from the 40 training recordings plus 4 edge windows; `--per-class 500`, 29 MB, not committed): worst feature error 7.1e-4 on one real window (mean 7.9e-7), **64,096 of 64,096 int8 inputs identical, predicted class identical for 2,004 of 2,004**. These are training windows, so this tests that the implementation reproduces Python's numbers, not that the model generalises.
+- *Cost, from the linked RP2350 image (`firmware/pico2-bringup`, binary `feature_probe`).* About 7.6 KB of flash (10,304 bytes against the 2,728-byte blink image; 6.2 KB of it is the tables) and about 12.4 KB of RAM (`.bss` 12,744 against 328 bytes), of which 8 KB is the extractor's scratch and 4 KB is the probe's test window. Cycles and time are not measured.
+- *A stuck sensor is a numerical hazard.* A constant window has no AC content, so every band should sit at the floor (-12). A plain `f32` mean left a rounding residue that produced arithmetic-noise features, so the code uses a two-pass mean and returns exactly -12. The Python pipeline has the same flaw in a milder form (its float32 mean of a constant 0.37 is off by 5.5e-8, which puts band 0 at -9.6); the Rust test checks the exact answer and does not require agreement with that artefact.
+- *Decision made:* `f32`, hand-written, not fixed-point and not a library. The RP2350's Cortex-M33 cores should have a single-precision FPU (unconfirmed until the first run), the features then match Python to the figures above, and a fixed-point version would add a second source of feature drift. If the measured cycle cost is too high, fixed-point is the fallback.
+
+**ADXL345 driver (`firmware/tinyadxl`).** A small `no_std` driver for `embedded-hal` 1.0 `SpiDevice`: ID check, configuration (rate, range, full resolution, stream FIFO, watermark interrupt), FIFO level, sample and FIFO reads. It is tested against a simulated chip that models the register file, the 32-entry FIFO and `INT_SOURCE`, rejects framing the chip would not accept, and enforces the datasheet's FIFO timing rule. Writing the test against the rule found a bug in my first version (the 5 microsecond gap was inside the transaction with chip select still low; the driver now releases chip select and waits, via a delay provider). The simulator and the driver share my reading of the chip, so agreement shows consistency only; the register map, bit meanings and timing rule were cross-checked against Linux's `adxl34x` driver and Adafruit's library, but the datasheet PDF itself could not be fetched, and the SPI mode and the 3.9 mg scale remain unverified.
+
+## Phase 2 plan (host-side preparation done; nothing run on a board)
 
 Run the same model on a real microcontroller with a real accelerometer.
 
@@ -44,8 +57,8 @@ Run the same model on a real microcontroller with a real accelerometer.
 
 - Whether the deployed model should be trained for detection only (healthy vs faulty), given that diagnosis does not generalise. Phase 1 supports detection as the dependable function.
 - Whether to add an anomaly-detection formulation (model of "normal" only), which would not need fault examples at all, as a comparison.
-- Whether the on-device FFT uses a library or a hand-written fixed-point version, and how that changes the features.
-- The accelerometer, once its datasheet bandwidth is checked.
+- ~~Whether the on-device FFT uses a library or a hand-written fixed-point version~~ Decided: hand-written `f32` (see above); revisit only if the measured cycles are too high.
+- The accelerometer: an ADXL345 is on order. At 3,200 Hz it samples near the 3 kHz point of the bandwidth study (detection 100%, diagnosis 93%), but that study used an ideal low-pass filter and the sensor's own analog bandwidth is half its output rate, so the study should be repeated with a closer model of the sensor before trusting the result.
 
 ## Known limitations
 

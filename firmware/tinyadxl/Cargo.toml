@@ -1,0 +1,9 @@
+[package]
+name = "tinyadxl"
+version = "0.1.0"
+edition = "2021"
+description = "Minimal no_std ADXL345 accelerometer driver over SPI (embedded-hal 1.0), tested against a simulated chip"
+license = "MIT"
+
+[dependencies]
+embedded-hal = "1"

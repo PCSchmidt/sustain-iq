@@ -21,9 +21,12 @@ jobs:
 
   rust:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        crate: [tinyinfer, tinyfeat, tinyadxl]
     defaults:
       run:
-        working-directory: firmware/tinyinfer
+        working-directory: firmware/${{ matrix.crate }}
     steps:
       - uses: actions/checkout@v4
       - uses: dtolnay/rust-toolchain@stable
@@ -31,7 +34,7 @@ jobs:
           components: rustfmt, clippy
       - uses: Swatinem/rust-cache@v2
         with:
-          workspaces: firmware/tinyinfer
+          workspaces: firmware/${{ matrix.crate }}
       - run: cargo fmt --all -- --check
       - run: cargo clippy --all-targets -- -D warnings
       - run: cargo test
@@ -47,8 +50,14 @@ jobs:
         with:
           workspaces: |
             firmware/tinyinfer
+            firmware/tinyfeat
+            firmware/tinyadxl
             firmware/pico2-bringup
       - run: cargo build --release --target thumbv8m.main-none-eabihf
         working-directory: firmware/tinyinfer
+      - run: cargo build --release --target thumbv8m.main-none-eabihf
+        working-directory: firmware/tinyfeat
+      - run: cargo build --release --target thumbv8m.main-none-eabihf
+        working-directory: firmware/tinyadxl
       - run: cargo build --release
         working-directory: firmware/pico2-bringup

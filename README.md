@@ -4,7 +4,7 @@
 
 A small vibration classifier for machine health, taken from public bearing data down to something that fits in a microcontroller: features a microcontroller can compute, an integer-only model of a couple of kilobytes, and an inference engine in Rust that reproduces the Python reference bit for bit. The question behind it is the same one the sibling projects ask at other scales (a detector, a language model): what does each reduction in size, precision and sensor quality cost, and what does an honest test actually show?
 
-**Status: phase 1 (host side) complete; nothing has run on a microcontroller yet.** Everything below was measured on a PC with the public CWRU bearing dataset. Phase 2 puts the same model on a microcontroller with a real accelerometer; no hardware has been bought or tested, and no on-device latency, memory or energy numbers exist. See the [roadmap](docs/roadmap.md).
+**Status: phase 1 (host side) complete and phase 2 prepared on the host; nothing has run on a microcontroller yet.** Everything below was measured on a PC with the public CWRU bearing dataset. Phase 2 puts the same model on a microcontroller with a real accelerometer. The parts are ordered; so far the Rust feature extractor matches the Python features, an ADXL345 driver passes tests against a simulated chip, and a [bring-up checklist](docs/bringup-checklist.md) is ready, but no on-device latency, memory or energy numbers exist. See the [roadmap](docs/roadmap.md).
 
 Part of [physical-ai-portfolio](https://github.com/PCSchmidt/physical-ai-portfolio). It applies the measurement habits from [Sentinel Node](https://github.com/PCSchmidt/sentinel-node) and [TriageBox](https://github.com/PCSchmidt/triagebox).
 
@@ -35,6 +35,9 @@ Data: 40 recordings from the [Case Western Reserve University Bearing Data Cente
 | `src/sustain_iq/` | Windowing, feature extraction, leak-aware splits, a numpy MLP, integer quantisation, export |
 | `scripts/` | Download the data, run the studies, build the tables and figure |
 | `firmware/tinyinfer/` | Integer-only Rust inference engine and the bit-exactness test |
+| `firmware/tinyfeat/` | `no_std` Rust log band-energy features, checked against the Python features and end to end through `tinyinfer` |
+| `firmware/tinyadxl/` | `no_std` ADXL345 SPI driver, tested against a simulated chip |
+| `firmware/pico2-bringup/` | Embassy images for the Raspberry Pi Pico 2 (blink; a feature-extractor link check); not yet run on a board |
 | `results/` | Saved results (JSON) behind every number in the docs |
 | `docs/` | [Results](docs/results.md), [design](docs/design.md), [roadmap](docs/roadmap.md) |
 
