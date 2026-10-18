@@ -9,6 +9,11 @@ rustup target add thumbv8m.main-none-eabihf
 cargo build --release
 ```
 
+## Images
+
+- `pico2-bringup` (`src/main.rs`): blinks the LED.
+- `feature_probe` (`src/bin/feature_probe.rs`): builds a synthetic window and runs the `tinyfeat` extractor, to prove it links for the chip and to get its flash and RAM cost (about 7.6 KB and 12.4 KB; see `docs/design.md`). Built with `cargo build --release`; flash one with `cargo run` or by copying a UF2 once the first run is understood.
+
 ## Status
 
 - Builds and links. Release image: 2,728 bytes text, 328 bytes bss, with the RP2350 image-definition block placed after the vector table.
