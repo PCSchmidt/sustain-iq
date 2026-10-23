@@ -5,16 +5,19 @@
 //!
 //! **Status: tested only against a simulated chip (`tests/sim.rs`); it has not touched a real ADXL345.**
 //! The register map, the bit meanings, the command byte (`R/W` bit 7, `MB` bit 6), the 5 MHz limit, the
-//! output-rate codes and the FIFO timing rule below were cross-checked against two independent code bases
-//! (Linux's `adxl34x` driver and Adafruit's `Adafruit_ADXL345`), not against the datasheet PDF, which could
-//! not be fetched. Still unverified: the required SPI mode (the datasheet is believed to ask for mode 3, idle
-//! clock high, sample on the second edge), the 3.9 mg per count scale, and everything about real timing.
+//! output-rate codes and the FIFO timing rule were cross-checked against two independent code bases
+//! (Linux's `adxl34x` driver and Adafruit's `Adafruit_ADXL345`) and, on 2026-10-23, against the text of an
+//! ADXL345 datasheet (a copy hosted by SparkFun, marked Rev. 0; later revisions were not read): SPI mode 3
+//! (CPOL = 1, CPHA = 1, data sampled on the rising edge), 5 MHz maximum with 100 pF loading, a 3.9 mg per count
+//! scale in full resolution, rate code 1111 for 3200 Hz with 1600 Hz bandwidth, DEVID 0xE5, a 32-level FIFO,
+//! multiple-byte reads required for the FIFO. Nothing here has been checked against a real chip, and nothing
+//! about real timing is known.
 //! The bench items are in `docs/bringup-checklist.md`.
 //!
 //! **FIFO read timing.** After a FIFO data read there must be at least 5 microseconds, with chip select
-//! released, before the next FIFO read or a `FIFO_STATUS` read (Linux's driver quotes this from the datasheet;
-//! at SPI clocks of 1.5 MHz or less the addressing bytes already provide it, above that chip select must be
-//! deasserted). [`Adxl345::read_fifo`] takes a delay provider and leaves that gap after every sample;
+//! released, before the next FIFO read or a `FIFO_STATUS` read (the datasheet: above 1.6 MHz chip select must be
+//! deasserted to guarantee a total delay of 5 microseconds, and at 5 MHz at most 3.4 microseconds are needed;
+//! at lower clocks the addressing bytes already provide the delay). [`Adxl345::read_fifo`] takes a delay provider and leaves that gap after every sample;
 //! [`Adxl345::read_sample`] does not, so the caller must wait before touching the FIFO again.
 
 #![no_std]

@@ -8,10 +8,10 @@ Nothing below has been done on hardware. The host-side code that this checklist 
 | --- | --- |
 | Rust builds for the RP2350 (Cortex-M33, `thumbv8m.main-none-eabihf`) and an Embassy blink image links | Done on the host; **not run on a board** |
 | `tinyfeat` features agree with the Python features | Done on the host (see design.md) |
-| `tinyadxl` register map, command bits, ODR codes, 5 MHz limit, FIFO timing rule | Cross-checked against Linux's `adxl34x` driver and Adafruit's `Adafruit_ADXL345`; the datasheet PDF could not be fetched |
-| ADXL345 needs SPI mode 3 | **Unverified** (believed from the datasheet; neither source above states it) |
-| Scale of 3.9 mg per count in full-resolution mode | **Unverified** (Adafruit's library rounds to 4 mg) |
-| The Cortex-M33 in the RP2350 has a single-precision FPU, so the `hard-float` target is valid | **Unverified**; the first run of `feature_probe` will tell (a missing FPU faults) |
+| `tinyadxl` register map, command bits, ODR codes, 5 MHz limit, FIFO timing rule | Cross-checked against Linux's `adxl34x` driver and Adafruit's `Adafruit_ADXL345`, and read from the ADXL345 datasheet text (a Rev. 0 copy; check the current revision for changes) |
+| ADXL345 needs SPI mode 3 | **Confirmed in the datasheet text** (CPOL = 1, CPHA = 1, 5 MHz maximum, data sampled on the rising edge); not yet seen working on a chip |
+| Scale of 3.9 mg per count in full-resolution mode | **Confirmed in the datasheet text** (3.9 mg/LSB; the feature list rounds it to 4 mg/LSB) |
+| The Cortex-M33 in the RP2350 has a single-precision FPU, so the `hard-float` target is valid | **Confirmed in the RP2350 datasheet** (section 3.1: the two Cortex-M33 are configured with the Security, DSP and FPU extensions); the first run of `feature_probe` will still be the real test |
 | Anything about timing, jitter, cycles, energy | **Unmeasured** |
 
 ## Steps
